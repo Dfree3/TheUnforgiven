@@ -3,33 +3,33 @@ import requests
 
 
 
-def BanChamps():
+def banChamps():
     page = requests.get('http://na.op.gg/champion/statistics')  # gets the link and puts it into page
     # print(page.status_code) #A status_code of 200 means that the page downloaded successfully
     soup = BeautifulSoup(page.content, 'html.parser')  # parses the page and puts it into soup
 
     print("Champions in order from most to least banned:")
     ban = (soup.select('div.Content span.ChampionName')) # goes to the div called Content then the span called Champion name and selects it then puts it in ban
-    for i, ban in enumerate(ban, 1): # enumerates ban starting at one
+    for i, ban in enumerate(ban, 1): # enumerates ban starting at one 
         print(i, ". ", ban.text, sep='') #prints i then ". " then ban but just the text and takes all the spaces out except the one I made
     print('\n')
 
 
 
-def HardMatchUps():
+def hardMatchUps():
     page = requests.get('http://www.matchup.gg/champion/Yasuo/')  # gets the link and puts it into page
     # print(page.status_code) #A status_code of 200 means that the page downloaded successfully
     soup = BeautifulSoup(page.content, 'html.parser')  # parses the page and puts it into soup
 
     beware = (soup.find_all('div', {'class': 'champion-lookup-item-info'})) # finds all the class in div then puts it into beware
     print("*Be very careful against these champions!*", end='') # gets rid of all the new lines that are automatically added
-    print(beware[0].text[:-20], beware[2].text[:-20], beware[5].text[:-20], beware[6].text[:-21],
-          beware[7].text[:-20], beware[9].text[:-20], beware[11].text[:-20], beware[14].text[:-20]) # finds the indexed item called in beware and prints just the text but deletes the last 20(or 21) letters
+    print(beware[0].text[:-20], beware[1].text[:-20], beware[2].text[:-20], beware[3].text[:-19], 
+          beware[4].text[:-20], beware[5].text[:-19], beware[6].text[:-20], beware[7].text[:-20]) # finds the indexed item called in beware and prints just the text but deletes the last 20(or 21) letters
     print("\n")
 
 
 
-def Summary():
+def summary():
     page = requests.get('http://na.op.gg/champion/yasuo/statistics/top')  # gets the link and puts it into page
     # print(page.status_code) #A status_code of 200 means that the page downloaded successfully
     soup = BeautifulSoup(page.content, 'html.parser')  # parses the page and puts it into soup
@@ -64,9 +64,12 @@ def Summary():
 
 
 
+def main():
+    banChamps()
+    hardMatchUps()
+    summary()
 
-BanChamps()
-HardMatchUps()
-Summary()
+main()
 
-#Not sure how to do these ^
+
+
