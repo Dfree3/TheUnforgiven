@@ -24,7 +24,7 @@ def hardMatchUps():
     beware = (soup.find_all('div', {'class': 'champion-lookup-item-info'})) # finds all the class in div then puts it into beware
     print("*Be very careful against these champions!*", end='') # gets rid of all the new lines that are automatically added
     print(beware[0].text[:-20], beware[1].text[:-20], beware[2].text[:-20], beware[3].text[:-19], 
-          beware[4].text[:-20], beware[5].text[:-19], beware[6].text[:-20], beware[7].text[:-20]) # finds the indexed item called in beware and prints just the text but deletes the last 20(or 21) letters
+          beware[4].text[:-20], beware[5].text[:-19], beware[6].text[:-20], beware[7].text[:-20], beware[8].text[:-20], beware[9].text[:-20]) # finds the indexed item called in beware and prints just the text but deletes the last 20(or 21) letters
     print("\n")
 
 
@@ -57,10 +57,10 @@ def summary():
     print("\n-Best rune choice:")
     label = (soup.find_all('div', {'class': 'Label'}))  # finds all the divs inside of soup with the class label and puts them into label
     value = (soup.find_all('div', {'class': 'Value'}))
-    print('', label[6].text, value[6].text)  # after a blank space it prints the text of the 7th label then the text of the 7th value
-    print('', label[7].text, value[7].text)
-    print('', label[8].text, value[8].text)
-    print('', label[9].text, value[9].text)
+    print('', label[2].text, value[2].text)  # after a blank space it prints the text of the 7th label then the text of the 7th value
+    print('', label[3].text, value[3].text)
+    print('', label[4].text, value[4].text)
+    print('', label[5].text, value[5].text)
 
 
 
