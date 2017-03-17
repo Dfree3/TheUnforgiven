@@ -1,6 +1,6 @@
 import praw
 
-reddit = praw.Reddit(user_agent = 'Yasuo Tips Comment Scraper 1.0 for YasuoMains. Contact me at /u/Dfree35 or ',
+reddit = praw.Reddit(user_agent = 'Yasuo Tips',
                 client_id='', client_secret='',
                 username='', password='')
 
